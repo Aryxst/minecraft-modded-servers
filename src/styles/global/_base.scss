@@ -1,0 +1,19 @@
+.btn {
+ @apply m-1 rounded-lg bg-[var(--black)] p-2 text-white;
+
+ &.btn-border {
+  @apply border border-[var(--black)];
+ }
+ &.btn-hover {
+  @apply transition-all;
+  &:hover {
+   @apply translate-y-[-3px] bg-white text-[var(--black)] shadow;
+  }
+ }
+}
+.footer {
+ @apply relative w-full text-balance bg-[var(--teal)] p-4;
+}
+body {
+ font-weight: 300;
+}
