@@ -1,47 +1,177 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { VT323 as MCFont } from 'next/font/google';
+import Link from 'next/link';
+import Image from 'next/image';
 import { getServerById } from '@/lib/requests';
-import { lenght as maxLenght } from '@/lib/servers';
-import Main from '@/components/Main';
+import { maxLength } from '@/lib/servers';
+import { nameTrim } from '@/lib/utils';
+import IPIcon from '@/images/address.svg';
+import PackIcon from '@/images/pack.svg';
+import LanguageIcon from '@/images/language.svg';
+import StatusIcon from '@/images/status.svg';
+import PlayerIcon from '@/images/user.svg';
+import WebsiteIcon from '@/images/website.svg';
+import ServerImageIcon from '@/images/server-icon.svg';
+import MOTDIcon from '@/images/motd.svg';
+import NameIcon from '@/images/what.svg';
+import VersionIcon from '@/images/version.svg';
+import DiscordIcon from '@/images/discord.svg';
+import BellIcon from '@/images/bell.svg';
 import CopyButton from '@/components/CopyButton';
 
+import '@/styles/modules/ServerSpecs.scss';
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
 
 export default async function Page({ params: { serverId } }) {
+ 'use server';
  serverId = Number(serverId);
  const {
-  metadata: { icon: localIcon, website, ip, name },
+  metadata: { icon: localIcon, website, ip, name, type, discord },
   icon,
   motd,
   players,
+  online,
+  version,
+  retrieved_at,
  } = await getServerById(serverId);
- // => (Total seconds to wait for recache - (Current Time - Last Cache Time) = Time elapsed in seconds) / 60 = Time elapsed in minutes / 60 = in seconds
  return (
-  <Main>
-   <div className={'flex flex-col flex-wrap text-center'}>
-    <Image src={icon || localIcon} height="64" width="64" alt="No Icon" className="self-center" />
-    <p>Name: {name}</p>
-    <p>Players: {(players && `${players.online}/${players.max}`) || 'None'}</p>
-    <CopyButton textToCopy={ip} detail={'Click to copy the address'}>
-     IP: {ip}
-    </CopyButton>
+  <div className='flex min-h-screen flex-col justify-between bg-slate-50 p-8'>
+   <div className='server-specs'>
+    <div className='server-specs_info'>
+     <h1>Server Info</h1>
+     <table className='w-full bg-white p-4 shadow'>
+      <tbody>
+       <tr>
+        <th>
+         <Image src={NameIcon} height='20' width='20' className='mr-1.5 inline' alt='Name Icon' />
+         Name
+        </th>
+        <td>{name}</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={IPIcon} height='20' width='20' className='mr-1.5 inline' alt='IP Icon' />
+         IP
+        </th>
+        <td>
+         <CopyButton textToCopy={ip}>{ip}</CopyButton>
+        </td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={StatusIcon} height='20' width='20' className='mr-1.5 inline' alt='Status Icon' />
+         Status
+        </th>
+        <td className='m-0'>
+         <span className={'m-0 rounded-lg p-[3px] text-sm text-white ' + (online ? 'bg-green-500' : 'bg-red-500')}>{online ? 'Online' : 'Offline'}</span>
+        </td>
+       </tr>
 
-    <Link href={website || ''} target="_blank" className={'btn sm:self-center ' + ((!website && 'pointer-events-none bg-gray-500') || '')}>
-     {website ? 'Website' : 'No website'}
-    </Link>
-    <p>MOTD:</p>
-    <p dangerouslySetInnerHTML={{ __html: (motd && motd.html) || 'No MOTD to display.' }} className={mcfont.className + ' text-2xl'} />
-    <div className="inline-flex self-center">
-     <Link href={`/server/${serverId - 1}`} className={'btn ' + ((serverId === 0 && 'pointer-events-none bg-gray-500') || '')}>
-      {'<'}
-     </Link>
-     <p className="self-center">Current: {serverId}</p>
-     <Link href={`/server/${serverId + 1}`} className={'btn ' + ((serverId >= maxLenght && 'pointer-events-none bg-gray-500') || '')}>
-      {'>'}
-     </Link>
+       <tr>
+        <th>
+         <Image src={PlayerIcon} height='20' width='20' className='mr-1.5 inline' alt='Player Icon' />
+         Players
+        </th>
+        <td>{`${players?.online || 0} out of ${players?.max || 0}`}</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={VersionIcon} height='20' width='20' className='mr-1.5 inline' alt='Version Icon' />
+         Version
+        </th>
+        <td>{version?.name_clean || 'Not Retrievable'}</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={PackIcon} height='20' width='20' className='mr-1.5 inline' alt='Pack Icon' />
+         Type
+        </th>
+        <td>
+         <Link href={`/type/${type}`} className='transition-colors hover:text-blue-500'>
+          {nameTrim(name)}
+         </Link>
+        </td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={LanguageIcon} height='20' width='20' className='mr-1.5 inline' alt='Language Icon' />
+         Language
+        </th>
+        <td>English</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={WebsiteIcon} height='20' width='20' className='mr-1.5 inline' alt='Website Icon' />
+         Website
+        </th>
+        <td>
+         <Link href={website || ''} className='transition-colors hover:text-blue-500'>
+          {website || 'None'}
+         </Link>
+        </td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={MOTDIcon} height='20' width='20' className='mr-1.5 inline' alt='MOTD Icon' />
+         MOTD
+        </th>
+        <td className='bg-black text-white'>
+         <p dangerouslySetInnerHTML={{ __html: (motd && motd.html) || 'No MOTD to display' }} className={mcfont.className + ' text-2xl'}></p>
+        </td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={ServerImageIcon} height='20' width='20' className='mr-1.5 inline' alt='Server Image Icon' />
+         Icon
+        </th>
+        <td>
+         <Image src={icon || localIcon} alt='No Icon' width={64} height={64} />
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div className='server-specs_details mt-4'>
+     <h1>Server Details</h1>
+     <table className='w-full bg-white p-4 shadow'>
+      <tbody>
+       <tr>
+        <th>
+         <Image src={BellIcon} height='20' width='20' className='mr-1 inline' alt='Bell Icon' />
+         Last Ping
+        </th>
+        <td>{Math.round((Date.now() - retrieved_at) / 60 / 20)} seconds ago</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={BellIcon} height='20' width='20' className='mr-1 inline' alt='Bell Icon' />
+         Retrieved Ping At
+        </th>
+        <td>{new Date(retrieved_at).toLocaleTimeString()}</td>
+       </tr>
+       <tr>
+        <th>
+         <Image src={DiscordIcon} height='20' width='20' className='mr-1.5 inline' alt='Discord Icon' />
+         Discord
+        </th>
+        <td>
+         <Link href={(discord && `//discord.gg/${discord}`) || ''} className='transition-colors hover:text-blue-500'>
+          {discord ? 'Join Discord' : 'None'}
+         </Link>
+        </td>
+       </tr>
+      </tbody>
+     </table>
     </div>
    </div>
-  </Main>
+   <div className='mt-4 inline-flex self-center'>
+    <Link href={`/server/${serverId - 1}`} scroll={false} className={'btn ' + (serverId === 0 && 'pointer-events-none bg-gray-500')}>
+     {'<'}
+    </Link>
+    <p className='self-center'>Current: {serverId}</p>
+    <Link href={`/server/${serverId + 1}`} scroll={false} className={'btn ' + (serverId >= maxLength && 'pointer-events-none bg-gray-500')}>
+     {'>'}
+    </Link>
+   </div>
+  </div>
  );
 }

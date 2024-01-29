@@ -1,3 +1,1 @@
-export function capitalize(string: string) {
- return string.charAt(0).toUpperCase() + string.slice(1);
-}
+export const nameTrim = (name: string) => name.split('| ')[1] ?? name.split("'s")[1].split('|')[0];

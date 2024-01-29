@@ -1,19 +1,45 @@
 .btn {
- @apply m-1 rounded-lg bg-[var(--black)] p-2 text-white;
-
+ @apply m-1 rounded-lg bg-[var(--dark)] p-2 text-white;
  &.btn-border {
-  @apply border border-[var(--black)];
+  @apply border border-[var(--dark)];
  }
  &.btn-hover {
   @apply transition-all;
   &:hover {
-   @apply translate-y-[-3px] bg-white text-[var(--black)] shadow;
+   @apply translate-y-[-3px] bg-white text-[var(--dark)] shadow;
   }
  }
 }
+.navbar {
+ @apply relative w-full border-b border-b-[var(--dark)] py-2 text-neutral-500 shadow hover:text-neutral-700 focus:text-neutral-700 lg:py-4;
+ &_container {
+  @apply flex w-full items-center justify-between px-3;
+ }
+}
 .footer {
- @apply relative w-full text-balance bg-[var(--teal)] p-4;
+ @apply relative flex w-full text-balance bg-[var(--mistgray)] text-white;
+ p:first-of-type {
+  @apply p-4;
+ }
+ &_links {
+  @apply ml-auto inline-flex place-items-center max-sm:flex-wrap;
+  a {
+   @apply p-1 font-normal transition-[background-color] md:h-full md:p-4;
+   &:hover {
+    @apply bg-[var(--dark)];
+   }
+  }
+ }
 }
 body {
  font-weight: 300;
+}
+form {
+ label {
+  @apply font-normal;
+ }
+
+ textarea {
+  @apply mt-4 border border-black;
+ }
 }

@@ -1,25 +1,35 @@
 import { Poppins } from 'next/font/google';
-import Script from 'next/script';
+import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
-import '@/styles/styles.scss';
+import '@/styles/global/_index.scss';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400'] });
 
-export const metadata = { title: 'MCModded List' };
+export const metadata: Metadata = {
+ title: 'Minecraft Modded Servers | Minecraft Server List',
 
+ metadataBase: new URL('https://minecraftmoddedservers.vercel.app/'),
+ description: 'Explore a variety of Minecraft multiplayer modded servers through this new list, features basic server information. New features coming soon!',
+ openGraph: {
+  title: 'Minecraft Modded Servers | Minecraft Server List',
+  authors: 'Jessie Odeh (AKA Aryxst)',
+  firstName: 'Jessie',
+  lastName: 'Odeh',
+  tags: ['minecraft', 'mods', 'modded', 'server', 'list', 'minecraft-server', 'multiplayer', 'modded-mc', 'mods', 'aryxst', 'jessie', 'odeh'],
+ },
+};
 export default async function RootLayout({ children }) {
  'use server';
  return (
-  <html lang="en">
+  <html lang='en'>
    <body className={poppins.className}>
     <main>
      <Navbar />
      {children}
      <Footer />
     </main>
-    <Script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="jessieodeh" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18" />
    </body>
   </html>
  );

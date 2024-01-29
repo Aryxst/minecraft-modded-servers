@@ -1,0 +1,45 @@
+@use '../global/' as *;
+
+@layer components {
+ .server-list {
+  align-items: center;
+  @apply grid w-screen grid-cols-1 place-items-center gap-x-2 gap-y-4 md:grid-cols-2  md:gap-x-5 lg:w-fit xl:grid-cols-3 xl:gap-x-[25px];
+ }
+ .server-item {
+  grid-template-areas:
+   'name name name'
+   'op ip ip';
+  @apply mt-2 grid h-fit w-[95%] grid-cols-3 rounded-lg bg-white shadow-md lg:w-[475px] xl:w-[400px] 2xl:w-[500px];
+  &_name {
+   grid-area: name;
+   @apply h-full rounded-t-md bg-gray-200 pb-0.5 pl-0.5 pr-0.5 pt-0.5 text-center text-base font-normal transition-colors lg:text-[16px] 2xl:text-[18px];
+   &:hover {
+    color: var(--bittersweet);
+    cursor: pointer;
+   }
+  }
+  &_online-players {
+   grid-area: op;
+   @apply m-1 h-fit rounded-b-md rounded-t-md bg-gray-200 text-center font-normal;
+   &_status {
+    @apply block rounded-b-md text-white;
+    &.status-offline {
+     @apply bg-red-500;
+    }
+    &.status-online {
+     @apply bg-emerald-500;
+    }
+   }
+  }
+  &_ip {
+   grid-area: ip;
+   @apply mr-1 mt-1 h-[72px] rounded-md border border-[var(--dark)] text-center text-sm md:text-base;
+   button {
+    @apply h-full;
+   }
+  }
+ }
+}
+.servers-h1 {
+ @apply mb-2 pb-8 text-center text-2xl font-normal md:text-4xl;
+}
