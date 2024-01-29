@@ -7,10 +7,9 @@ export async function getAllByType(modpack: string = '') {
  try {
   const servers = modpack ? serverList.filter((meta) => meta.type === modpack.toLowerCase().replace(/\s+/g, '')) : serverList;
   const results = await Promise.all(
-   servers.map(async (metadata) => {
-    for (let i = 0; i < servers.length; i++) {
-     const res = await fetch(`${process.env.MCAPI}/${metadata.ip}`, { next: { revalidate } });
-     const data: MinecraftServerAPIResponse = await res.json();
+   servers.map(async (metadata, i) => {
+    const res = await fetch(`${process.env.MCAPI}/${metadata.ip}`, { next: { revalidate } });
+    const data: MinecraftServerAPIResponse = await res.json();
      return { data, metadata };
     }
    }),
