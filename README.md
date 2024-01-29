@@ -1,4 +1,4 @@
-# Minecraft Modded Server Search
+# MMSL(for short)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/aryxst/minecraft-modded-servers)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Aryxst/minecraft-modded-servers)
