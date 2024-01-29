@@ -1,9 +1,10 @@
-import { VT323 as MCFont } from 'next/font/google';
 import Link from 'next/link';
 import Image from 'next/image';
+import { VT323 as MCFont } from 'next/font/google';
 import { getServerById } from '@/lib/requests';
 import { maxLength } from '@/lib/servers';
 import { nameTrim } from '@/lib/utils';
+import CopyButton from '@/components/CopyButton';
 import IPIcon from '@/images/address.svg';
 import PackIcon from '@/images/pack.svg';
 import LanguageIcon from '@/images/language.svg';
@@ -17,9 +18,8 @@ import VersionIcon from '@/images/version.svg';
 import DiscordIcon from '@/images/discord.svg';
 import BellIcon from '@/images/bell.svg';
 import NoImageIcon from '@/images/no-image.svg';
-import CopyButton from '@/components/CopyButton';
-
 import '@/styles/modules/ServerSpecs.scss';
+
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
 
 export default async function Page({ params: { serverId } }) {
@@ -36,7 +36,7 @@ export default async function Page({ params: { serverId } }) {
  } = await getServerById(serverId);
  return (
   <div className='flex min-h-screen flex-col justify-between bg-slate-50 p-8'>
-   <div className='server-specs'>
+   <div>
     <div>
      <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white'>Server Info</h1>
      <table className='w-full bg-white p-4 shadow'>
@@ -131,7 +131,7 @@ export default async function Page({ params: { serverId } }) {
       </tbody>
      </table>
     </div>
-    <div className='server-specs_details mt-4'>
+    <div className='mt-4'>
      <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white'>Server Details</h1>
      <table className='w-full bg-white p-4 shadow'>
       <tbody>
