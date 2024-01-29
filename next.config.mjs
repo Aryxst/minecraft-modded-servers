@@ -1,14 +1,10 @@
 import { join } from 'path';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+ compress: true,
  async redirects() {
   return [
    // Basic redirect
-   {
-    source: '/type',
-    destination: '/',
-    permanent: true,
-   },
    {
     source: '/server',
     destination: '/',
