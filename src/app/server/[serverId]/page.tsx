@@ -16,6 +16,7 @@ import NameIcon from '@/images/what.svg';
 import VersionIcon from '@/images/version.svg';
 import DiscordIcon from '@/images/discord.svg';
 import BellIcon from '@/images/bell.svg';
+import NoImageIcon from '@/images/no-image.svg';
 import CopyButton from '@/components/CopyButton';
 
 import '@/styles/modules/ServerSpecs.scss';
@@ -36,20 +37,20 @@ export default async function Page({ params: { serverId } }) {
  return (
   <div className='flex min-h-screen flex-col justify-between bg-slate-50 p-8'>
    <div className='server-specs'>
-    <div className='server-specs_info'>
-     <h1>Server Info</h1>
+    <div>
+     <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white'>Server Info</h1>
      <table className='w-full bg-white p-4 shadow'>
       <tbody>
        <tr>
         <th>
-         <Image src={NameIcon} height='20' width='20' className='mr-1.5 inline' alt='Name Icon' />
+         <Image src={NameIcon} height={20} width={20} className='mr-1.5 inline' alt='Name Icon' />
          Name
         </th>
         <td>{name}</td>
        </tr>
        <tr>
         <th>
-         <Image src={IPIcon} height='20' width='20' className='mr-1.5 inline' alt='IP Icon' />
+         <Image src={IPIcon} height={20} width={20} className='mr-1.5 inline' alt='IP Icon' />
          IP
         </th>
         <td>
@@ -58,31 +59,31 @@ export default async function Page({ params: { serverId } }) {
        </tr>
        <tr>
         <th>
-         <Image src={StatusIcon} height='20' width='20' className='mr-1.5 inline' alt='Status Icon' />
+         <Image src={StatusIcon} height={20} width={20} className='mr-1.5 inline' alt='Status Icon' />
          Status
         </th>
-        <td className='m-0'>
+        <td>
          <span className={'m-0 rounded-lg p-[3px] text-sm text-white ' + (online ? 'bg-green-500' : 'bg-red-500')}>{online ? 'Online' : 'Offline'}</span>
         </td>
        </tr>
 
        <tr>
         <th>
-         <Image src={PlayerIcon} height='20' width='20' className='mr-1.5 inline' alt='Player Icon' />
+         <Image src={PlayerIcon} height={20} width={20} className='mr-1.5 inline' alt='Player Icon' />
          Players
         </th>
         <td>{`${players?.online || 0} out of ${players?.max || 0}`}</td>
        </tr>
        <tr>
         <th>
-         <Image src={VersionIcon} height='20' width='20' className='mr-1.5 inline' alt='Version Icon' />
+         <Image src={VersionIcon} height={20} width={20} className='mr-1.5 inline' alt='Version Icon' />
          Version
         </th>
         <td>{version?.name_clean || 'Not Retrievable'}</td>
        </tr>
        <tr>
         <th>
-         <Image src={PackIcon} height='20' width='20' className='mr-1.5 inline' alt='Pack Icon' />
+         <Image src={PackIcon} height={20} width={20} className='mr-1.5 inline' alt='Pack Icon' />
          Type
         </th>
         <td>
@@ -93,14 +94,14 @@ export default async function Page({ params: { serverId } }) {
        </tr>
        <tr>
         <th>
-         <Image src={LanguageIcon} height='20' width='20' className='mr-1.5 inline' alt='Language Icon' />
+         <Image src={LanguageIcon} height={20} width={20} className='mr-1.5 inline' alt='Language Icon' />
          Language
         </th>
         <td>English</td>
        </tr>
        <tr>
         <th>
-         <Image src={WebsiteIcon} height='20' width='20' className='mr-1.5 inline' alt='Website Icon' />
+         <Image src={WebsiteIcon} height={20} width={20} className='mr-1.5 inline' alt='Website Icon' />
          Website
         </th>
         <td>
@@ -111,7 +112,7 @@ export default async function Page({ params: { serverId } }) {
        </tr>
        <tr>
         <th>
-         <Image src={MOTDIcon} height='20' width='20' className='mr-1.5 inline' alt='MOTD Icon' />
+         <Image src={MOTDIcon} height={20} width={20} className='mr-1.5 inline' alt='MOTD Icon' />
          MOTD
         </th>
         <td className='bg-black text-white'>
@@ -120,41 +121,41 @@ export default async function Page({ params: { serverId } }) {
        </tr>
        <tr>
         <th>
-         <Image src={ServerImageIcon} height='20' width='20' className='mr-1.5 inline' alt='Server Image Icon' />
+         <Image src={ServerImageIcon} height={20} width={20} className='mr-1.5 inline' alt='Server Image Icon' />
          Icon
         </th>
         <td>
-         <Image src={icon || localIcon} alt='No Icon' width={64} height={64} />
+         <Image src={icon || localIcon || NoImageIcon} alt='No Icon' width={64} height={64} />
         </td>
        </tr>
       </tbody>
      </table>
     </div>
     <div className='server-specs_details mt-4'>
-     <h1>Server Details</h1>
+     <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white'>Server Details</h1>
      <table className='w-full bg-white p-4 shadow'>
       <tbody>
        <tr>
         <th>
-         <Image src={BellIcon} height='20' width='20' className='mr-1 inline' alt='Bell Icon' />
+         <Image src={BellIcon} height={20} width={20} className='mr-1 inline' alt='Bell Icon' />
          Last Ping
         </th>
         <td>{Math.round((Date.now() - retrieved_at) / 60 / 20)} seconds ago</td>
        </tr>
        <tr>
         <th>
-         <Image src={BellIcon} height='20' width='20' className='mr-1 inline' alt='Bell Icon' />
+         <Image src={BellIcon} height={20} width={20} className='mr-1 inline' alt='Bell Icon' />
          Retrieved Ping At
         </th>
         <td>{new Date(retrieved_at).toLocaleTimeString()}</td>
        </tr>
        <tr>
         <th>
-         <Image src={DiscordIcon} height='20' width='20' className='mr-1.5 inline' alt='Discord Icon' />
+         <Image src={DiscordIcon} height={20} width={20} className='mr-1.5 inline' alt='Discord Icon' />
          Discord
         </th>
         <td>
-         <Link href={(discord && `//discord.gg/${discord}`) || ''} className='transition-colors hover:text-blue-500'>
+         <Link href={(discord && `//discord.gg/${discord}`) || ''} prefetch={false} className='transition-colors hover:text-blue-500'>
           {discord ? 'Join Discord' : 'None'}
          </Link>
         </td>

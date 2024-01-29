@@ -3,7 +3,7 @@ th,
 td {
  border: 1px solid black;
  border-collapse: collapse;
- @apply p-1;
+ padding: 4px;
 }
 th {
  text-align: left;
@@ -11,16 +11,4 @@ th {
 }
 td {
  width: 70%;
-}
-.server-specs {
- h1:first-of-type {
-  @apply w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white;
- }
- &_info {
- }
- &_details {
- }
- &_switcher {
-  @apply w-full;
- }
 }

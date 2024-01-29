@@ -10,17 +10,17 @@ export default async function Page() {
       <div>
        <label htmlFor='fullname'>Your Full Name</label>
        <br />
-       <input type='text' name='fullname' id='fullname' placeholder='...' className='mb-2 mt-2 p-1' minLength={5} required />
+       <input type='text' name='fullname' id='fullname' placeholder='...' className='mb-2 mt-2 border border-black p-1' minLength={5} required />
       </div>
       <div>
        <label htmlFor='email'>Your email</label>
        <br />
-       <input type='email' name='email' id='email' placeholder='...' className='mb-2 mt-2 p-1' minLength={7} required />
+       <input type='email' name='email' id='email' placeholder='...' className='mb-2 mt-2 border border-black p-1' minLength={7} required />
       </div>
       <div>
        <label htmlFor='message'>Message</label>
        <br />
-       <textarea name='message' id='mynameisidk' placeholder='...' minLength={20} className='p-1' required />
+       <textarea name='message' id='mynameisidk' placeholder='...' minLength={20} className='mt-4 border border-black p-1' required />
       </div>
       <br />
       <input type='submit' className='btn m-0 w-full cursor-pointer bg-[var(--dark)]' value='Submit' />

@@ -7,7 +7,7 @@ export default async function Home() {
  return (
   <Main>
    <div>
-    <h1 className='servers-h1'>All Server Types</h1>
+    <h1 className='mb-2 pb-8 text-center text-2xl font-normal md:text-4xl'>All Server Types</h1>
     {Object.keys(typeNames).map((abbr, i) => (
      <Link href={`/type/${abbr}`} key={i} className='btn inline-flex'>
       {typeNames[abbr][0]}

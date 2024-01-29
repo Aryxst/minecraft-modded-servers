@@ -15,7 +15,7 @@ export default async function Home({ params: { type } }) {
  return (
   <Main>
    <div>
-    <h1 className='servers-h1'>All {nameTrim(data[0].metadata.name)} Servers</h1>
+    <h1 className='mb-2 pb-8 text-center text-2xl font-normal md:text-4xl'>All {nameTrim(data[0].metadata.name)} Servers</h1>
     <ServerListContainer>
      {data.map((server, i) => (
       <ServerItem key={i} metadata={server.metadata} {...server.data} id={server.metadata.id} />

@@ -19,7 +19,7 @@ export default async function Home() {
   <Main>
    <div>
     <div>
-     <h1 className='servers-h1'>All Servers</h1>
+     <h1 className='mb-2 pb-8 text-center text-2xl font-normal md:text-4xl'>All Servers</h1>
     </div>
     <Servers />
    </div>
