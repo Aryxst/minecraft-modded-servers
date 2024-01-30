@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   tags: ['minecraft', 'mods', 'modded', 'server', 'list', 'minecraft-server', 'multiplayer', 'modded-mc', 'mods', 'aryxst', 'jessie', 'odeh'],
  },
 };
-export default async function RootLayout({ children }) {
+export default async function RootLayout(props: any) {
  'use server';
  return (
   <html lang='en'>
    <body className={poppins.className}>
     <main>
      <Navbar />
-     {children}
+     {props.children}
      <Footer />
     </main>
    </body>

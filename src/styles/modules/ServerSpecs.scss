@@ -4,10 +4,13 @@ td {
  border: 1px solid black;
  border-collapse: collapse;
  padding: 4px;
+ text-wrap: balance;
 }
+
 th {
  text-align: left;
  width: 30%;
+ @apply max-sm:text-xs;
 }
 td {
  width: 70%;

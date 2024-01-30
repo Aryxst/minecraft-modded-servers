@@ -1,8 +1,6 @@
-import Main from '@/components/Main';
-
 export default async function Page() {
  return (
-  <Main>
+  <div className='flex min-h-screen flex-col items-center justify-between bg-slate-50 p-8 text-black'>
    <div className='mt-4 rounded-t-lg bg-white shadow'>
     <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-2xl text-white'>Contact</h1>
     <div className='p-8'>
@@ -27,6 +25,6 @@ export default async function Page() {
      </form>
     </div>
    </div>
-  </Main>
+  </div>
  );
 }

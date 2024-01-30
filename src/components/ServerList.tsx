@@ -2,7 +2,7 @@ import Link from 'next/link';
 import CopyButton from '@/components/CopyButton';
 import type { ServerMetadata, MinecraftServerAPIResponse } from '@/lib/servers';
 
-export const ServerListContainer = ({ children }) => <div className='grid w-screen grid-cols-1 place-items-center gap-x-2 gap-y-4 md:grid-cols-2  md:gap-x-5 lg:w-fit xl:grid-cols-3 xl:gap-x-[25px]'>{children}</div>;
+export const ServerListContainer = ({ children }) => <div className='grid w-screen grid-cols-1 place-items-center gap-x-2 gap-y-4 md:grid-cols-2 md:gap-x-5 lg:w-fit xl:grid-cols-3 xl:gap-x-[25px]'>{children}</div>;
 
 export const ServerItem = ({ id, metadata: { name, ip }, players, online }: MinecraftServerAPIResponse & { metadata: ServerMetadata } & { id: number }) => {
  return (

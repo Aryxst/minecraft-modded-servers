@@ -1,11 +1,9 @@
-import Main from '@/components/Main';
-
 export default async function Page() {
  return (
-  <Main>
+  <div className='flex min-h-screen flex-col items-center justify-between bg-slate-50 p-8 text-black'>
    <div className='mt-4'>
     <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-2xl text-white'>Legal Notice</h1>
-    <div className='prose bg-white p-4 shadow'>
+    <div className='prose text-balance bg-white p-4 shadow'>
      <h2>Liability for Contents</h2>
      <p>
       I have carefully drafted the contents of these pages, but I cannot guarantee the accuracy, completeness, and timeliness of the information provided. As a service provider, I am responsible for the content on these pages in accordance with Article 7, paragraph 1, of the Italian Telecommunications Code (Legislative Decree 70/2003) and general laws. However, I am not obligated to monitor or investigate information transmitted or stored by third parties, nor to examine circumstances indicating illegal activity. Obligations to remove or block information under general laws remain unaffected.
@@ -25,6 +23,6 @@ export default async function Page() {
      </p>
     </div>
    </div>
-  </Main>
+  </div>
  );
 }

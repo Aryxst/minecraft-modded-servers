@@ -1,4 +1,3 @@
-import Main from '@/components/Main';
 import ServerTotalCounter from '@/components/ServerTotalCounter';
 import { ServerItem, ServerListContainer } from '@/components/ServerList';
 import { getAll } from '@/lib/requests';
@@ -16,14 +15,14 @@ export default async function Home() {
   </ServerListContainer>
  );
  return (
-  <Main>
+  <div className='flex min-h-screen flex-col items-center justify-between overflow-clip bg-slate-50 p-8 text-black'>
    <div>
-    <div>
-     <h1 className='mb-2 pb-8 text-center text-2xl font-normal md:text-4xl'>All Servers</h1>
+    <div className='pb-8'>
+     <h1 className='pb-4 text-center text-2xl font-normal md:text-4xl'>All Servers</h1>
+     <ServerTotalCounter players={players} servers={data.length} />
     </div>
     <Servers />
    </div>
-   <ServerTotalCounter players={players} servers={data.length} />
-  </Main>
+  </div>
  );
 }

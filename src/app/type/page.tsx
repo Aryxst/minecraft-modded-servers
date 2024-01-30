@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import Main from '@/components/Main';
 import { typeNames } from '@/lib/servers';
 
 export default async function Home() {
  'use server';
  return (
-  <Main>
+  <div className='flex min-h-screen flex-col  justify-between bg-slate-50 p-8 text-black '>
    <div>
     <h1 className='mb-2 pb-8 text-center text-2xl font-normal md:text-4xl'>All Server Types</h1>
     {Object.keys(typeNames).map((abbr, i) => (
@@ -15,6 +14,6 @@ export default async function Home() {
      </Link>
     ))}
    </div>
-  </Main>
+  </div>
  );
 }

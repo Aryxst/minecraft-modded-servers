@@ -12,8 +12,8 @@ export default function Navbar() {
       <Image src={Logo} height={64} width={64} alt='Logo' />
      </Link>
     </div>
-    <Link href='/type' className='ml-6 mr-auto font-normal transition-colors hover:text-blue-500 md:text-lg'>
-     <span className='max-sm:text-xs'> Filter Servers</span>
+    <Link href='/type' className='font-normal transition-[color] hover:text-blue-500 md:text-lg'>
+     <span>Server Types</span>
      <Image src={FilterIcon} alt='Filter Icon' height={20} width={20} className='inline' />
     </Link>
    </div>
