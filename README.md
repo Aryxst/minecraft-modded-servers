@@ -25,7 +25,7 @@ Also because this was a side project, so **I'm not**(probably) going to spend ti
 
 <p>If you like the website helpful, please consider supporting me.</p>
 <br/>
-<a href="https://www.buymeacoffee.com/aryxst" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+<a href="https://www.buymeacoffee.com/jessieodeh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ## Disclaimer
 
