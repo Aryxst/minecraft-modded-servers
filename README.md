@@ -10,7 +10,7 @@ A website listing minecraft modded servers and their status.
 
 ## Usage
 
-1. Visit the website at [MMSL](https://minecraftmoddedservers.vercel.app), here you can browse all servers.
+1. Visit the website at [MMSL](https://minecraft-modded-servers.vercel.app), here you can browse all servers.
 2. Navigate to the /type route to get a list of available server types, and getting a sorted list.
 3. Browse through the list of servers and click on the ones that interest you.
 4. Visit the server's website or join page to learn more about it.
