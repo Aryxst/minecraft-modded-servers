@@ -5,6 +5,8 @@ import { getAll } from '@/lib/requests';
 import { typeNames } from '@/lib/servers';
 import { nameTrim } from '@/lib/utils';
 
+export const runtime = 'edge';
+
 export default async function Home({ params: { type } }) {
  type = type.toLowerCase().replace(/\s+/g);
  !typeNames.hasOwnProperty(type) && notFound();

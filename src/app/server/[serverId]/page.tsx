@@ -20,6 +20,8 @@ import BellIcon from '@/images/bell.svg';
 import NoImageIcon from '@/images/no-image.svg';
 import '@/styles/modules/ServerSpecs.scss';
 
+export const runtime = 'edge';
+
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
 
 export default async function Page({ params: { serverId } }) {

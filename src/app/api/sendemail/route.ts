@@ -1,5 +1,7 @@
 import { format } from 'util';
 
+export const runtime = 'edge';
+
 export async function POST(request: Request) {
  const headers = new Headers();
  headers.append('Host', 'discord.com');
