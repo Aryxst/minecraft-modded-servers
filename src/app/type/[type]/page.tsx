@@ -4,7 +4,6 @@ import ServerTotalCounter from '@/components/ServerTotalCounter';
 import { getAll } from '@/lib/requests';
 import { typeNames } from '@/lib/servers';
 import { nameTrim } from '@/lib/utils';
-import '@/styles/modules/ServerList.scss';
 
 export default async function Home({ params: { type } }) {
  type = type.toLowerCase().replace(/\s+/g);
@@ -13,8 +12,8 @@ export default async function Home({ params: { type } }) {
  const players = data.reduce((total, server) => total + (server.data.players?.online || 0), 0);
  const Servers = () => (
   <ServerListContainer>
-   {data.map((server, i) => {
-    return <ServerItem key={i} id={i} {...Object({ players: server.data.players, online: server.data.online })} metadata={server.metadata} />;
+   {data.map((server) => {
+    return <ServerItem key={server.metadata.id} id={server.metadata.id} {...Object({ players: server.data.players, online: server.data.online })} metadata={server.metadata} />;
    })}
   </ServerListContainer>
  );
