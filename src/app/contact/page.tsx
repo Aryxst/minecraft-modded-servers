@@ -18,7 +18,7 @@ export default async function Page() {
       <div>
        <label htmlFor='message'>Message</label>
        <br />
-       <textarea name='message' id='mynameisidk' placeholder='...' minLength={20} className='mt-4 border border-black p-1' required />
+       <textarea name='message' id='message' placeholder='...' minLength={20} className='mt-4 border border-black p-1' required />
       </div>
       <br />
       <input type='submit' className='btn m-0 w-full cursor-pointer bg-[var(--dark)]' value='Submit' />
