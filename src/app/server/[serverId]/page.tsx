@@ -20,8 +20,6 @@ import BellIcon from '@/images/bell.svg';
 import NoImageIcon from '@/images/no-image.svg';
 import '@/styles/modules/ServerSpecs.scss';
 
-export const runtime = 'edge';
-
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
 
 export default async function Page({ params: { serverId } }) {
@@ -141,7 +139,7 @@ export default async function Page({ params: { serverId } }) {
         <Image src={BellIcon} height={20} width={20} className='mr-1 sm:inline' alt='Bell Icon' />
         Last Ping
        </th>
-       <td>{Math.round((Date.now() - retrieved_at) / 60 / 20)} seconds ago</td>
+       <td>{Math.round((Date.now() - retrieved_at) / 1000)} seconds ago</td>
       </tr>
       <tr>
        <th>

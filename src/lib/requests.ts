@@ -4,8 +4,6 @@ export const revalidate = 300;
 
 export async function getAll() {
  try {
-  // I have actually tested using for loops and using getServerById instead of refecthing
-  // And using maps "in this case" was faster by 5ms
   const results = await Promise.all(
    servers.map(async (metadata, i) => {
     const res = await fetch(`${process.env.MCAPI}/${metadata.ip}`, { next: { revalidate } });
