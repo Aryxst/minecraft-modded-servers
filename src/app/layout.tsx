@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default async function RootLayout(props: any) {
  'use server';
  return (
-    <Analytics>
+  
   <html lang='en'>
    <body className={poppins.className}>
     <main>
@@ -31,8 +31,9 @@ export default async function RootLayout(props: any) {
      {props.children}
      <Footer />
     </main>
+    <Analytics/>
    </body>
   </html>
-  </Analytics>
+
  );
 }
