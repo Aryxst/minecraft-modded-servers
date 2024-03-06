@@ -11,7 +11,7 @@ export const ServerItem = ({ id, metadata: { name, ip }, players, online }: Mine
    <Link href={`/server/${id}`} prefetch={false} className='server-item_name h-full rounded-t-md bg-gray-200 pb-0.5 pl-0.5 pr-0.5 pt-0.5 text-center text-base font-normal transition-colors lg:text-[16px] 2xl:text-[18px]'>
     <h1>{name}</h1>
    </Link>
-   <div className='server-item_online-players m-1 h-fit rounded-b-md rounded-t-md bg-gray-200 text-center font-normal'>
+   <div className='server-item_online-players m-1 h-[72px] rounded-b-md rounded-t-md bg-gray-200 text-center font-normal'>
     <p>Players</p>
     <span>{online ? `${players.online}/${players.max}` : '0/0'}</span>
     <span className={`block rounded-b-md text-white ${online ? 'bg-emerald-500' : 'bg-red-500'}`}>{online ? 'Online' : 'Offline'}</span>
