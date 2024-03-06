@@ -1,5 +1,6 @@
 import { Poppins } from 'next/font/google';
 import { Metadata } from 'next';
+import { Analytics } from "@vercel/analytics/react"
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import '@/styles/global/_index.scss';
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
 export default async function RootLayout(props: any) {
  'use server';
  return (
+    <Analytics>
   <html lang='en'>
    <body className={poppins.className}>
     <main>
@@ -31,5 +33,6 @@ export default async function RootLayout(props: any) {
     </main>
    </body>
   </html>
+  </Analytics>
  );
 }
