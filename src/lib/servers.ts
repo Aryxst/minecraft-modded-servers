@@ -28,7 +28,7 @@ export const servers: Servers = [
  { name: '[US]CraftersLand | FTB Infinity Evolved [FORGE]', ip: 'inf.craftersland.net', type: 'ftbie', website: 'https://www.craftersland.net', discord: 'HurWCR33', lang: 'en' },
  { name: '[DE]CraftersLand | FTB Infinity Evolved [FORGE]', ip: 'mc.myftb.de', type: 'ftbie', website: 'https://www.craftersland.net', discord: 'HurWCR33', lang: 'en' },
  { name: 'StoneLegion | FTB Infinity Evolved [FORGE]', ip: 'mc.stonelegion.com', type: 'ftbie', website: 'https://stonelegion.com/', discord: 'kBTabCX', lang: 'en' },
- { name: 'CDU | Fantasy MC [FABRIC]', ip: 'fmc.playcdu.co', type: 'ftbie', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
+ { name: 'CDU | Fantasy MC [FABRIC]', ip: 'fmc.playcdu.co', type: 'fantasymc', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
  { name: 'CDU | Enigmatica 9 [FORGE]', ip: 'e9.playcdu.co', type: 'enigm9', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
  { name: '[EU]CDU | ATM9 [FORGE]', ip: 'atm9eu.playcdu.co', type: 'atm9', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
  { name: '[US]CDU | ATM9 [FORGE]', ip: 'atm9mc.playcdu.co', type: 'atm9', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
