@@ -42,7 +42,7 @@ export default async function Page({ params: { serverId } }) {
      <tbody>
       <tr>
        <th>
-        <Image src={NameIcon} height={20} width={20} className='mr-1.5 break-words sm:inline' alt='Name Icon' />
+        <Image src={NameIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Name Icon' />
         Name
        </th>
        <td>{name}</td>
@@ -75,7 +75,7 @@ export default async function Page({ params: { serverId } }) {
       </tr>
       <tr>
        <th>
-        <Image src={VersionIcon} height={20} width={20} className='mr-1.5 break-words sm:inline' alt='Version Icon' />
+        <Image src={VersionIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Version Icon' />
         Version
        </th>
        <td className='text-wrap'>{version?.name_clean || 'Not Retrievable'}</td>
