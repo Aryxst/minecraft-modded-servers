@@ -2,6 +2,7 @@
  "name": "mmsl",
  "version": "1.0.0",
  "private": true,
+ "homepage":"https://minecraft-modded-servers.vercel.app/",
  "scripts": {
   "dev": "next dev",
   "build": "next build",
