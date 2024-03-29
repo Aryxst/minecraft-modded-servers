@@ -20,7 +20,7 @@ import BellIcon from '@/images/bell.svg';
 import NoImageIcon from '@/images/no-image.svg';
 import '@/styles/modules/ServerSpecs.scss';
 
-/* THE DATA REFRESHES EVERY 300 SECONDS(5 MIN) */
+/* THE DATA REFRESHES EVERY 300 SECONDS(5 MIN), this gets info of a specific server */
 
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
 export default async function Page({ params: { serverId } }) {
