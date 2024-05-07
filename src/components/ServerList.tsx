@@ -7,7 +7,7 @@ import CopyIcon from '@/assets/icons/copy.svg';
 
 import '@/styles/modules/ServerList.scss';
 
-export const ServerListContainer = ({ children }) => <ul className='my-4 grid min-h-[calc(100vh-(181px+16px))] w-screen grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] gap-8 p-4 font-sans font-normal'>{children}</ul>;
+export const ServerListContainer = ({ children }) => <ul className='my-4 grid min-h-[calc(100vh-(181px+16px))] w-screen gap-8 p-4 font-sans font-normal sm:grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))]'>{children}</ul>;
 
 export const ServerItem = ({ id, metadata: { name, ip }, players, online }: MinecraftServerAPIResponse & { metadata: ServerMetadata } & { id: number }) => {
  return (
