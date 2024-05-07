@@ -1,26 +1,45 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import CopyButton from '@/components/CopyButton';
 import type { ServerMetadata, MinecraftServerAPIResponse } from '@/lib/servers';
+import { nameTrim } from '@/lib/utils';
+import CopyIcon from '@/assets/icons/copy.svg';
+
 import '@/styles/modules/ServerList.scss';
 
-export const ServerListContainer = ({ children }) => <div className='grid w-screen grid-cols-1 place-items-center gap-x-2 gap-y-4 md:grid-cols-2 md:gap-x-5 lg:w-fit xl:grid-cols-3 xl:gap-x-[25px]'>{children}</div>;
+export const ServerListContainer = ({ children }) => <ul className='my-4 grid min-h-[calc(100vh-(181px+16px))] w-screen grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] gap-8 p-4 font-sans font-normal'>{children}</ul>;
 
 export const ServerItem = ({ id, metadata: { name, ip }, players, online }: MinecraftServerAPIResponse & { metadata: ServerMetadata } & { id: number }) => {
  return (
-  <div className='server-item mt-2 grid h-fit w-[95%] grid-cols-3 rounded-lg bg-white shadow-md lg:w-[475px] xl:w-[400px] 2xl:w-[500px] '>
-   <Link href={`/server/${id}`} prefetch={false} className='server-item_name h-full rounded-t-md bg-gray-200 pb-0.5 pl-0.5 pr-0.5 pt-0.5 text-center text-base font-normal transition-colors lg:text-[16px] 2xl:text-[18px]'>
-    <h1>{name}</h1>
+  <li className='h-fit rounded-lg border bg-white p-4'>
+   <Link href={`/server/${id}`} prefetch={false}>
+    <h1 className='text-center text-xl font-bold'>{nameTrim(name)}</h1>
    </Link>
-   <div className='server-item_online-players m-1 h-[72px] rounded-b-md rounded-t-md bg-gray-200 text-center font-normal'>
-    <p>Players</p>
-    <span>{online ? `${players.online}/${players.max}` : '0/0'}</span>
-    <span className={`block rounded-b-md text-white ${online ? 'bg-emerald-500' : 'bg-red-500'}`}>{online ? 'Online' : 'Offline'}</span>
-   </div>
-   <div className='server-item_ip mr-1 mt-1 h-[72px] rounded-md border border-[var(--dark)] text-center text-sm md:text-base'>
-    <CopyButton textToCopy={ip} className='h-full'>
+   <div className='my-2 h-1 rounded-l-full rounded-r-full bg-gray-200' />
+   <ul className='flex flex-col gap-1'>
+    <li className='flex justify-between'>
+     <p>Online Players:</p>
+     <span className='text-right'>{online ? `${players.online} / ${players.max}` : '0/0'}</span>
+    </li>
+
+    <li className='flex justify-between'>
+     <p>Status:</p>
+     <div className='flex h-fit items-center gap-1 text-right'>
+      <svg viewBox='0 0 100 100' className={`inline size-2 ${online ? 'fill-green-500' : 'fill-red-500'}`}>
+       <circle cx='50' cy='50' r='45' />
+      </svg>
+
+      {online ? 'Online' : 'Offline'}
+     </div>
+    </li>
+
+    <li className='mt-2 w-full rounded bg-gray-100 p-2'>
      {ip}
-    </CopyButton>
-   </div>
-  </div>
+     <CopyButton textToCopy={ip} afterCopy={'Copied!'} className='float-right'>
+      <Image src={CopyIcon} height={20} width={20} alt='Copy Icon' />
+     </CopyButton>
+    </li>
+   </ul>
+  </li>
  );
 };
