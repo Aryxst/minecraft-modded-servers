@@ -1,6 +1,14 @@
 'use client';
 import { useState } from 'react';
-export default function CopyButton(props: { textToCopy: string; className?: string; detail?: string; children?: any }) {
+
+interface Props {
+ children?: any;
+ textToCopy: string;
+ afterCopy?: any;
+ title?: string;
+ className?: string;
+}
+export default function CopyButton(props: Props) {
  const [isCopied, setIsCopied] = useState(false);
  const copy = async () => {
   await navigator.clipboard.writeText(props.textToCopy);
@@ -10,8 +18,8 @@ export default function CopyButton(props: { textToCopy: string; className?: stri
   }, 1500);
  };
  return (
-  <button disabled={isCopied} onClick={copy} className={props.className || ''} title={props.detail}>
-   {isCopied ? 'Copied!' : props.children}
+  <button disabled={isCopied} onClick={copy} className={props.className} title={props.title}>
+   {isCopied && props.afterCopy ? props.afterCopy : props.children}
   </button>
  );
 }

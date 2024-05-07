@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '@/images/logo.svg';
-import FilterIcon from '@/images/filter.svg';
-// This is something I have to learn better: Navbars, it was difficult
+import Logo from '@/assets/logo.svg';
+import FilterIcon from '@/assets/icons/filter.svg';
 export default function Navbar() {
  return (
-  <nav className='relative w-full border-b border-b-[var(--dark)] py-2 text-neutral-500 shadow hover:text-neutral-700 focus:text-neutral-700 lg:py-4'>
-   <div className='flex w-full items-center justify-between px-3'>
-    <div className='inline-flex'>
+  <nav>
+   <div className='flex w-full items-center justify-between border-b border-b-black px-3 py-2 font-sans'>
+    <div>
      <Link href='/'>
       <Image src={Logo} height={64} width={64} alt='Logo' />
      </Link>

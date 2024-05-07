@@ -5,19 +5,19 @@ import { getServerById } from '@/lib/requests';
 import { maxLength } from '@/lib/servers';
 import { nameTrim } from '@/lib/utils';
 import CopyButton from '@/components/CopyButton';
-import IPIcon from '@/images/address.svg';
-import PackIcon from '@/images/pack.svg';
-import LanguageIcon from '@/images/language.svg';
-import StatusIcon from '@/images/status.svg';
-import PlayerIcon from '@/images/user.svg';
-import WebsiteIcon from '@/images/website.svg';
-import ServerImageIcon from '@/images/server-icon.svg';
-import MOTDIcon from '@/images/motd.svg';
-import NameIcon from '@/images/what.svg';
-import VersionIcon from '@/images/version.svg';
-import DiscordIcon from '@/images/discord.svg';
-import BellIcon from '@/images/bell.svg';
-import NoImageIcon from '@/images/no-image.svg';
+import IPIcon from '@/assets/icons/address.svg';
+import PackIcon from '@/assets/icons/pack.svg';
+import LanguageIcon from '@/assets/icons/language.svg';
+import StatusIcon from '@/assets/icons/status.svg';
+import PlayerIcon from '@/assets/icons/user.svg';
+import WebsiteIcon from '@/assets/icons/website.svg';
+import ServerImageIcon from '@/assets/icons/server-icon.svg';
+import MOTDIcon from '@/assets/icons/motd.svg';
+import NameIcon from '@/assets/icons/what.svg';
+import VersionIcon from '@/assets/icons/version.svg';
+import DiscordIcon from '@/assets/icons/discord.svg';
+import BellIcon from '@/assets/icons/bell.svg';
+import NoImageIcon from '@/assets/icons/no-image.svg';
 import '@/styles/modules/ServerSpecs.scss';
 
 const mcfont = MCFont({ subsets: ['latin'], weight: ['400'] });
@@ -35,10 +35,10 @@ export default async function Page({ params: { serverId } }) {
   retrieved_at,
  } = await getServerById(serverId);
  return (
-  <div className='flex min-h-screen flex-col justify-between bg-slate-50 p-8 text-black max-sm:w-screen max-sm:items-center'>
+  <div className='flex min-h-[calc(100vh-181px)] flex-col justify-between p-8 text-black max-sm:w-screen max-sm:items-center'>
    <div className='w-full max-sm:w-screen'>
-    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white max-sm:w-screen'>Server Info</h1>
-    <table className='w-full bg-white p-4 shadow max-sm:w-screen'>
+    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-screen'>Server Info</h1>
+    <table className='w-full bg-white p-4 font-sans max-sm:w-screen'>
      <tbody>
       <tr>
        <th>
@@ -131,8 +131,8 @@ export default async function Page({ params: { serverId } }) {
     </table>
    </div>
    <div className='mt-4 w-full max-sm:w-screen'>
-    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center text-white max-sm:w-screen'>Server Details</h1>
-    <table className='w-full bg-white p-4 shadow max-sm:w-screen'>
+    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-screen'>Server Details</h1>
+    <table className='w-full bg-white p-4 font-sans max-sm:w-screen'>
      <tbody>
       <tr>
        <th>
@@ -154,7 +154,7 @@ export default async function Page({ params: { serverId } }) {
         Discord
        </th>
        <td>
-        <Link href={(discord && `//discord.gg/${discord}`) || ''} prefetch={false} className='transition-colors hover:text-blue-500'>
+        <Link href={(discord && `https://discord.gg/${discord}`) || ''} prefetch={false} className='transition-colors hover:text-blue-500'>
          {discord ? 'Join Discord' : 'None'}
         </Link>
        </td>
@@ -162,12 +162,12 @@ export default async function Page({ params: { serverId } }) {
      </tbody>
     </table>
    </div>
-   <div className='mt-4 inline-flex self-center'>
-    <Link href={`/server/${serverId - 1}`} scroll={false} className={'btn ' + (serverId === 0 && 'pointer-events-none bg-gray-500')}>
+   <div className='mt-4 inline-flex self-center font-sans'>
+    <Link href={`/server/${serverId - 1}`} scroll={false} className={'m-1 rounded-lg bg-[var(--dark)] p-2 text-white ' + (serverId === 0 && 'pointer-events-none bg-gray-500')}>
      {'<'}
     </Link>
     <p className='self-center'>Current: {serverId}</p>
-    <Link href={`/server/${serverId + 1}`} scroll={false} className={'btn ' + (serverId >= maxLength && 'pointer-events-none bg-gray-500')}>
+    <Link href={`/server/${serverId + 1}`} scroll={false} className={'m-1 rounded-lg bg-[var(--dark)] p-2 text-white ' + (serverId >= maxLength && 'pointer-events-none bg-gray-500')}>
      {'>'}
     </Link>
    </div>

@@ -1,25 +1,5 @@
-@layer components {
- .btn {
-  @apply m-1 rounded-lg bg-[var(--dark)] p-2 text-white;
-  &.btn-border {
-   @apply border border-[var(--dark)];
-  }
-  &.btn-hover {
-   transition: all;
-   &:hover {
-    @apply translate-y-[-3px] bg-white text-[var(--dark)] shadow;
-   }
-  }
- }
- .footer_link {
-  @apply p-1 font-normal transition-[background-color] md:h-full md:p-4;
-  &:hover {
-   @apply bg-[var(--dark)];
-  }
- }
-}
 body {
- font-weight: 300;
+ font-weight: 400;
 }
 input[type='text'],
 input[type='email'],
