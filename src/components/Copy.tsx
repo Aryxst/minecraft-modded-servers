@@ -8,7 +8,7 @@ interface Props {
  title?: string;
  className?: string;
 }
-export default function CopyButton(props: Props) {
+export default function Copy(props: Props) {
  const [isCopied, setIsCopied] = useState(false);
  const copy = async () => {
   await navigator.clipboard.writeText(props.textToCopy);

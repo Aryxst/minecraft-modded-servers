@@ -1,6 +1,6 @@
 export default async function Page() {
  return (
-  <div className='flex min-h-screen flex-col items-center justify-between p-8 text-black'>
+  <div className='flex min-h-[calc(100vh-189px)] flex-col items-center justify-between p-8 text-black'>
    <div className='w-full rounded-t-lg border bg-white md:max-w-[700px]'>
     <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] py-2 text-center font-mono text-2xl text-white'>Contact</h1>
     <div className='p-6 font-sans'>

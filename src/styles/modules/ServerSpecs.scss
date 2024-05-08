@@ -10,9 +10,8 @@ td {
 th {
  text-align: left;
  width: 30%;
- @apply max-sm:text-xs;
+ @apply max-sm:text-sm;
 }
 td {
- width: 70%;
  word-break: break-word;
 }

@@ -4,7 +4,8 @@ import { VT323 as MCFont } from 'next/font/google';
 import { getServerById } from '@/lib/requests';
 import { maxLength } from '@/lib/servers';
 import { nameTrim } from '@/lib/utils';
-import CopyButton from '@/components/CopyButton';
+import Client from '@/components/Client';
+import Copy from '@/components/Copy';
 import IPIcon from '@/assets/icons/address.svg';
 import PackIcon from '@/assets/icons/pack.svg';
 import LanguageIcon from '@/assets/icons/language.svg';
@@ -35,10 +36,10 @@ export default async function Page({ params: { serverId } }) {
   retrieved_at,
  } = await getServerById(serverId);
  return (
-  <div className='flex min-h-[calc(100vh-181px)] flex-col justify-between p-8 text-black max-sm:w-screen max-sm:items-center'>
-   <div className='w-full max-sm:w-screen'>
-    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-screen'>Server Info</h1>
-    <table className='w-full bg-white p-4 font-sans max-sm:w-screen'>
+  <div className='flex min-h-[calc(100vh-189px)] flex-col justify-between p-4 text-black sm:p-8'>
+   <div className='w-full max-sm:w-full'>
+    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-full'>Server Info</h1>
+    <table className='w-full bg-white p-4 font-sans max-sm:w-full'>
      <tbody>
       <tr>
        <th>
@@ -53,7 +54,7 @@ export default async function Page({ params: { serverId } }) {
         IP
        </th>
        <td>
-        <CopyButton textToCopy={ip}>{ip}</CopyButton>
+        <Copy textToCopy={ip}>{ip}</Copy>
        </td>
       </tr>
       <tr>
@@ -71,14 +72,14 @@ export default async function Page({ params: { serverId } }) {
         <Image src={PlayerIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Player Icon' />
         Players
        </th>
-       <td>{`${players?.online || 0} out of ${players?.max || 0}`}</td>
+       <td>{online ? `${players?.online} out of ${players?.max || 0}` : 'N/A'}</td>
       </tr>
       <tr>
        <th>
         <Image src={VersionIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Version Icon' />
         Version
        </th>
-       <td className='text-wrap'>{version?.name_clean || 'Not Retrievable'}</td>
+       <td className='text-wrap'>{version?.name_clean || 'N/A'}</td>
       </tr>
       <tr>
        <th>
@@ -87,7 +88,7 @@ export default async function Page({ params: { serverId } }) {
        </th>
        <td>
         <Link href={`/type/${type}`} className='transition-colors hover:text-blue-500'>
-         {nameTrim(name)}
+         {nameTrim(name).modpack}
         </Link>
        </td>
       </tr>
@@ -104,7 +105,7 @@ export default async function Page({ params: { serverId } }) {
         Website
        </th>
        <td>
-        <Link href={website || ''} className='transition-colors hover:text-blue-500'>
+        <Link href={website || ''} className='transition-colors hover:text-blue-500 '>
          {website || 'None'}
         </Link>
        </td>
@@ -130,9 +131,9 @@ export default async function Page({ params: { serverId } }) {
      </tbody>
     </table>
    </div>
-   <div className='mt-4 w-full max-sm:w-screen'>
-    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-screen'>Server Details</h1>
-    <table className='w-full bg-white p-4 font-sans max-sm:w-screen'>
+   <div className='mt-4 w-full max-sm:w-full'>
+    <h1 className='w-full rounded-t-lg bg-[var(--mistgray)] pb-2 pt-2 text-center font-mono text-white max-sm:w-full'>Server Details</h1>
+    <table className='w-full bg-white p-4 font-sans max-sm:w-full'>
      <tbody>
       <tr>
        <th>
@@ -146,7 +147,9 @@ export default async function Page({ params: { serverId } }) {
         <Image src={BellIcon} height={20} width={20} className='mr-1 sm:inline' alt='Bell Icon' />
         Retrieved At
        </th>
-       <td>{new Date(retrieved_at).toLocaleTimeString()}</td>
+       <td>
+        <Client>{new Date(retrieved_at).toLocaleTimeString()}</Client>
+       </td>
       </tr>
       <tr>
        <th>

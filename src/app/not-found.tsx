@@ -4,7 +4,7 @@ export const metadata = {
 };
 export default function NotFound() {
  return (
-  <div className='flex h-[calc(100vh-181px)] flex-col items-center justify-center'>
+  <div className='flex h-screen flex-col items-center justify-center max-sm:px-4 lg:min-h-[calc(100vh-189px)]'>
    <div className='flex w-full max-w-md flex-col border border-black bg-white p-4 font-sans'>
     <h2 className='border-b border-b-black'>404 | Not Found</h2>
     <p className='mb-4 mt-4'>The requested url was not found.</p>

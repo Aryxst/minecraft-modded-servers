@@ -11,7 +11,7 @@ export const servers: Servers = [
  { name: 'Valhalla MC | Stoneblock 3', ip: 'sb3.valhallamc.io', type: 'stoneblock3', website: 'https://valhallamc.io/', icon: '/icons/valhallamc.png', discord: '8CvAEFWfMC', lang: 'en' },
  { name: 'The Calming Storm | Prominence II', ip: 'p2.calmingstorm.net', type: 'prominence2', website: 'https://www.calmingstorm.net/', discord: 'Q5kJw66Rks', lang: 'en' },
  { name: 'The Calming Storm | ATM9', ip: 'atm9.calmingstorm.net', type: 'atm9', website: 'https://www.calmingstorm.net/', discord: 'Q5kJw66Rks', lang: 'en' },
- { name: 'PumpKraft | Prominence II', ip: 'pr2.pumpkraft.net', type: 'prominence2fab', lang: 'en' },
+ { name: 'PumpKraft | Prominence II', ip: 'pr2.pumpkraft.net', type: 'prominence2', lang: 'en' },
  { name: 'Create: Astral Official Server | Create: Astral', ip: '152.67.150.39', type: 'createastral', discord: 'mNeHyuZdqm', lang: 'en' },
  { name: "Meowstard's Community | RAD2", ip: 'rad2.meowstard.cat', type: 'rad2', website: 'https://www.meowstard.cat/', discord: 'MCGC', lang: 'en' },
  { name: 'CDU | RAD2', ip: 'r2.playcdu.co', type: 'rad2', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
@@ -44,11 +44,11 @@ export const servers: Servers = [
 ];
 
 export const maxLength = servers.length - 1;
-export const typeNames = (() => {
+export const typeNames: Record<string, [string, string, number]> = (() => {
  const obj = {};
  for (let i = 0; i < maxLength; i++) {
   const type = servers[i].type;
-  obj.hasOwnProperty(type) ? (obj[type][2] += 1) : (obj[type] = [nameTrim(servers[i].name), type, 1]);
+  obj.hasOwnProperty(type) ? (obj[type][2] += 1) : (obj[type] = [nameTrim(servers[i].name).modpack, type, 1]);
  }
  return obj;
 })();

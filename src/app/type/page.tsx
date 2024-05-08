@@ -4,7 +4,7 @@ import { typeNames } from '@/lib/servers';
 export default async function Page() {
  'use client';
  return (
-  <div className='flex min-h-[calc(100vh-181px)] flex-col justify-between p-8 text-black'>
+  <div className='flex min-h-[calc(100vh-189px)] flex-col justify-between px-4 py-4 text-black sm:px-8'>
    <div>
     <ul className='font-sans'>
      {Object.keys(typeNames).map((abbr, i) => {
