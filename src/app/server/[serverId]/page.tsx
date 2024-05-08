@@ -105,8 +105,8 @@ export default async function Page({ params: { serverId } }) {
         Website
        </th>
        <td>
-        <Link href={website || ''} className='transition-colors hover:text-blue-500 '>
-         {website || 'None'}
+        <Link href={website || ''} className={website ? 'transition-colors hover:text-blue-500' : 'pointer-events-none'}>
+         {website || 'N/A'}
         </Link>
        </td>
       </tr>
@@ -158,7 +158,7 @@ export default async function Page({ params: { serverId } }) {
        </th>
        <td>
         <Link href={(discord && `https://discord.gg/${discord}`) || ''} prefetch={false} className='transition-colors hover:text-blue-500'>
-         {discord ? 'Join Discord' : 'None'}
+         {discord ? 'Join Discord' : 'N/A'}
         </Link>
        </td>
       </tr>
