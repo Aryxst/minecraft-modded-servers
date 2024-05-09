@@ -8,20 +8,20 @@ export default async function Page() {
       <div>
        <label htmlFor='fullname'>Your Full Name</label>
        <br />
-       <input type='text' name='fullname' id='fullname' className='mb-2 mt-2 border border-black p-1' minLength={5} required />
+       <input type='text' name='fullname' id='fullname' className='my-2 border border-black p-1' minLength={5} required />
       </div>
       <div>
        <label htmlFor='email'>Your email</label>
        <br />
-       <input type='email' name='email' id='email' className='mb-2 mt-2 border border-black p-1' minLength={7} required />
+       <input type='email' name='email' id='email' className='my-2 border border-black p-1' minLength={7} required />
       </div>
       <div>
        <label htmlFor='message'>Message</label>
        <br />
-       <textarea name='message' id='message' minLength={20} className='mt-4 border border-black p-1' required />
+       <textarea name='message' id='message' minLength={20} className='mt-2 border border-black p-1' required />
       </div>
       <br />
-      <input type='submit' className='w-full rounded-lg bg-[var(--dark)] p-2 text-white' value='Submit' />
+      <input type='submit' className='w-full cursor-pointer rounded-lg bg-[var(--dark)] p-2 text-white' value='Submit' />
      </form>
     </div>
    </div>
