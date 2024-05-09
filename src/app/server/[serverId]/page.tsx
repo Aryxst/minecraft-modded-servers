@@ -35,6 +35,7 @@ export default async function Page({ params: { serverId } }) {
   version,
   retrieved_at,
  } = await getServerById(serverId);
+ const trimmedName = nameTrim(name);
  return (
   <div className='flex min-h-[calc(100vh-189px)] flex-col justify-between p-4 text-black sm:p-8'>
    <div className='w-full max-sm:w-full'>
@@ -46,7 +47,7 @@ export default async function Page({ params: { serverId } }) {
         <Image src={NameIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Name Icon' />
         Name
        </th>
-       <td>{name}</td>
+       <td>{trimmedName.prefix}</td>
       </tr>
       <tr>
        <th>
@@ -54,7 +55,9 @@ export default async function Page({ params: { serverId } }) {
         IP
        </th>
        <td>
-        <Copy textToCopy={ip}>{ip}</Copy>
+        <Copy textToCopy={ip} afterCopy={'Copied!'}>
+         {ip}
+        </Copy>
        </td>
       </tr>
       <tr>
@@ -66,7 +69,6 @@ export default async function Page({ params: { serverId } }) {
         <span className={'m-0 rounded-lg p-[3px] text-sm text-white ' + (online ? 'bg-green-500' : 'bg-red-500')}>{online ? 'Online' : 'Offline'}</span>
        </td>
       </tr>
-
       <tr>
        <th>
         <Image src={PlayerIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Player Icon' />
@@ -79,7 +81,7 @@ export default async function Page({ params: { serverId } }) {
         <Image src={VersionIcon} height={20} width={20} className='mr-1.5 sm:inline' alt='Version Icon' />
         Version
        </th>
-       <td className='text-wrap'>{version?.name_clean || 'N/A'}</td>
+       <td className='text-wrap'>{version?.name_clean.replace(/[a-zA-Z,]/g, '') || 'N/A'}</td>
       </tr>
       <tr>
        <th>
@@ -88,7 +90,7 @@ export default async function Page({ params: { serverId } }) {
        </th>
        <td>
         <Link href={`/type/${type}`} className='transition-colors hover:text-blue-500'>
-         {nameTrim(name).modpack}
+         {trimmedName.modpack}
         </Link>
        </td>
       </tr>

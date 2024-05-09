@@ -39,7 +39,7 @@ export const servers: Servers = [
  { name: '[AU]CDU | BCG and the Holy Grail +', ip: 'bcg.au.playcdu.co', type: 'bcg', website: 'https://craftdownunder.co/', discord: 'bigchadguys', lang: 'en' },
  { name: '[US]CDU | BigChadGuys + (Non-Cobblemon)', ip: 'bcgnc.playcdu.co', type: 'bcgnc', website: 'https://craftdownunder.co/', discord: 'bigchadguys', lang: 'en' },
  { name: '[US]CDU | Create Arcane Engeenering', ip: 'ae.playcdu.co', type: 'createae', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
- { name: '[US]CDU | DawnCraft', ip: 'dc.playcdu.co', type: 'dawnmc', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
+ { name: '[US]CDU | DawnCraft', ip: 'dc.us.playcdu.co', type: 'dawnmc', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
  { name: '[US]CDU | MineColonies: Dimensional Adv', ip: 'mda.playcdu.co', type: 'minecolmda', website: 'https://craftdownunder.co/', discord: 'playcdu', lang: 'en' },
 ];
 
